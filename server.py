@@ -26,6 +26,16 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 nlp = spacy.load("es_core_news_sm")
 spell = SpellChecker(language='es') 
 
+# Ruta raíz para comprobar que el servidor responde
+@app.route("/")
+def home():
+    return "Servidor en línea 🚀"
+
+# Aquí irían tus otras rutas
+@app.route("/predict", methods=["POST"])
+def predict():
+    # lógica de predicción
+    return "Predicción"
 
 @app.route('/recibir', methods=['POST'])
 def recibir_imagenes():
